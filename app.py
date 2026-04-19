@@ -10,6 +10,8 @@ from flask_wtf.csrf import CSRFProtect
 app = Flask(__name__, static_folder='static')
 csrf = CSRFProtect(app)
 
+app.static_url_path = os.environ.get("STATIC_URL", "/static/")
+
 # WEBSITE_HOSTNAME exists only in production environment
 if 'WEBSITE_HOSTNAME' not in os.environ:
     # local development, where we'll use environment variables
